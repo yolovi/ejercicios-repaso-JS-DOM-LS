@@ -7,7 +7,28 @@
 
 // Crea un objeto en la variable ordenador de tal modo que el siguiente código no muestre por consola 'suspendes':
 
-// TEST 1 -----------------------
+//[OK] // TEST 1 -----------------------
+
+/*
+Este seria el objeto completo:
+
+let ordenador = {
+  name: "object",
+  marca: "Asus",
+  tipo: "portátil",
+  perifericos: {
+    touchpad: true,
+  },
+  almacenamiento: {
+    discos: ["SSD"],
+  },
+  procesador: {
+    velocidad: "2.5 GHz",
+  },
+
+}
+
+*/
 
 let ordenador = {
   name: "object",
@@ -19,7 +40,7 @@ if (typeof ordenador === "object") {
   console.log("suspendes");
 }
 
-// TEST 2 -----------------------
+//[OK] // TEST 2 -----------------------
 
 ordenador = {
   marca: "Asus",
@@ -31,7 +52,7 @@ if (ordenador.marca === "Asus") {
   console.log("suspendes");
 }
 
-// TEST 3 -----------------------
+//[OK] // TEST 3 -----------------------
 
 ordenador = {
   tipo: "portátil",
@@ -43,7 +64,7 @@ if (ordenador.tipo === "portátil") {
   console.log("suspendes");
 }
 
-// TEST 4 -----------------------
+//[OK] // TEST 4 -----------------------
 
 ordenador = {
   perifericos: {
@@ -57,7 +78,7 @@ if (ordenador.perifericos.touchpad === true) {
   console.log("suspendes");
 }
 
-// TEST 5 -----------------------
+//[OK] // TEST 5 -----------------------
 
 ordenador = {
   almacenamiento: {
@@ -71,7 +92,7 @@ if (ordenador.almacenamiento.discos[0] === "SSD") {
   console.log("suspendes");
 }
 
-// TEST 6
+//[OK] // TEST 6
 
 ordenador = {
   procesador: {
@@ -85,17 +106,74 @@ if (ordenador.procesador.velocidad === "2.5 GHz") {
   console.log("suspendes");
 }
 
+//[OK] // Crea un objeto en la variable usuario de tal modo que el siguiente código no muestre por consola 'suspendes':
+
+const usuario = {
+  nombre: "María",
+  direccion: {
+    ciudad: "Madrid",
+  },
+  intereses: ["cocinar","bailar"],
+  trabajos: [ 
+    {empresa: 1},
+    {empresa: "Google"},
+      ],
+}
+
+
+//[OK] // TEST 1
+if (typeof usuario === "object") {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
+//[OK] // TEST 2
+if (usuario.nombre === "María") {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
+//[OK] // TEST 3
+if (usuario.direccion.ciudad === "Madrid") {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
+//[OK] // TEST 4
+if (usuario.intereses.includes("cocinar")) {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
+//[OK] // TEST 5
+if (usuario.trabajos.length === 2) {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
+//[OK] // TEST 6
+if (usuario.trabajos[1].empresa === "Google") {
+  console.log("apruebas");
+} else {
+  console.log("suspendes");
+}
+
 /* ----------------------------------------------------
                     Bucles
 ---------------------------------------------------- */
 
-//  Imprimir los números del 21 al 34 en la consola.
+//[OK] //  Imprimir los números del 21 al 34 en la consola.
 
 for (let i = 21; i <= 34; i++) {
   console.log(i);
 }
 
-// Sumar los números del 1 al 10 y mostrar el resultado en la consola.
+//[OK] // Sumar los números del 1 al 10 y mostrar el resultado en la consola.
 
 let total = 0;
 for (let i = 1; i <= 10; i++) {
@@ -105,84 +183,115 @@ for (let i = 1; i <= 10; i++) {
 
 console.log(total);
 
-// Dado un array de números, imprimir en la consola la suma de todos los números.
+//[OK] // Dado un array de números, imprimir en la consola la suma de todos los números.
 
-// FOR---------------------------------------------------------
+//[OK] // FOR---------------------------------------------------------
 
-let arrayNum = [1, 2, 3, 4]
+let arrayNum = [1, 2, 3, 4];
 totalArr = 0;
 
-for(let i= 0; i < arrayNum.length; i++){
-  totalArr += arrayNum[i]
-  console.log(i, totalArr)
+for (let i = 0; i < arrayNum.length; i++) {
+  totalArr += arrayNum[i];
+  console.log(i, totalArr);
 }
 
-console.log(totalArr)
+console.log(totalArr);
 
-// FOREACH necesita funcion flecha-------------------------------
+//[OK] // FOREACH necesita funcion flecha-------------------------------
 
-const arrayNum_2 = [1, 2, 3, 4]
+const arrayNum_2 = [1, 2, 3, 4];
 totalArr_2 = 0;
 
 arrayNum_2.forEach((elemento) => {
-  totalArr_2 += elemento
-  console.log(elemento, totalArr_2)
-})
+  totalArr_2 += elemento;
+  console.log(elemento, totalArr_2);
+});
 
-console.log(totalArr_2)
+console.log(totalArr_2);
 
+//[OK] // FOR OF -----------------------------------------------------
 
-// FOR OF -----------------------------------------------------
-
-const arrayNum_3 = [1, 2, 3, 4]
+const arrayNum_3 = [1, 2, 3, 4];
 totalArr_3 = 0;
 
 for (let elemento of arrayNum_3) {
-  totalArr_3 += elemento
-  console.log(elemento, totalArr_3)
-  }
+  totalArr_3 += elemento;
+  console.log(elemento, totalArr_3);
+}
 
-  console.log(totalArr_3)
+console.log(totalArr_3);
 
 // FOR IN ------------------------------------------------------
 // for in es un metodo de objetos no de arrays
 
 //--------------------------------------------------------------
 
+// Dado un número, encontrar su factorial.
+//[OK] // Opc 1: cuenta hacia atras
 
-function fact(num){
+function fact(num) {
   let numFact = num;
 
-  for( let i = num -1; i >= 1; i-- ){
+  for (let i = num - 1; i >= 1; i--) {
     numFact *= i;
-    console.log(i, numFact)
+    console.log(i, numFact);
   }
-  return numFact
+  return numFact;
 }
 
-console.log(fact(5))
+console.log(fact(5));
 
-// -------------------------------------------------------------
+//[OK] // -------------------------------------------------------------
+// Opc 2: cuenta hasta el num
 
 function factorial(num) {
   let result = 1;
   for (let i = 1; i <= num; i++) {
     result *= i;
-    console.log(i, result)
+    console.log(i, result);
   }
   return result;
 }
 
-console.log(factorial(5))
+console.log(factorial(5));
 
 // -------------------------------------------------------------
 
+//[OK] // Dado un array de números, imprimir en la consola solo los números impares.
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+function impares(arr) {
+  let impares = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      impares = arr[i];
+      console.log(impares);
+    }
+  }
+}
 
+impares(array);
 
+//[OK] //----------------------------
 
-// Dado un array de números, imprimir en la consola solo los números impares.
+function imparesOpc2(arr) {
+  let imparesB = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let number = arr[i];
+    if (number % 2 !== 0) {
+      imparesB.push(number); // agrega number al arreglo imparesB
+    }
+  }
+  console.log(imparesB);
+}
+
+imparesOpc2(array);
+
+//TODO: SEGUIR POR AQUI
+
 // Dado un array de objetos con propiedades "nombre" y "edad", imprimir en la consola solo los nombres de las personas mayores de 18 años.
+
 // Dado un número, imprimir en la consola si es primo o no.
 
 // Utiliza la siguiente array para resolver los próximos ejercicios:
