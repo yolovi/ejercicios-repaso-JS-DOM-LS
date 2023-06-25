@@ -419,21 +419,85 @@ animales.forEach((animal) => {
 
 console.log(animalesNombreMasde4LetrasYFelinoOHerbivoro)
 
-//TODO: SEGUIR POR AQUI
-
 /* ----------------------------------------------------
                     Funciones
 ---------------------------------------------------- */
 
-// Crea una función llamada eliminarDuplicados(array) que reciba como parámetro un array de elementos y devuelva un nuevo array con los elementos únicos, es decir, sin elementos duplicados. Puedes utilizar un ciclo for...of para recorrer el array original.
+//[OK] // Crea una función llamada eliminarDuplicados(array) que reciba como parámetro un array de elementos y devuelva un nuevo array con los elementos únicos, es decir, sin elementos duplicados. Puedes utilizar un ciclo for...of para recorrer el array original.
+
 //salida
 eliminarDuplicados([1, 2, 3, 3, 4, 5, 5, 6]); // Devuelve [1, 2, 3, 4, 5, 6]
 eliminarDuplicados(["hola", "adios", "hola", "hasta", "luego"]); // Devuelve ["hola", "adios", "hasta", "luego"]
 
-// Crea una función llamada sumarElementos(array) que reciba como parámetro un array de números y devuelva la suma de todos sus elementos. Puedes utilizar un ciclo for...of para recorrer el array y sumar sus elementos.
+//con FOR:
+function eliminarDuplicados(arr) {
+  let arrayUnicos = [];
+
+  for (let i = 0; i < arr.length; i++){
+
+    if(!arrayUnicos.includes(arr[i])){  
+      arrayUnicos.push(arr[i]); 
+    }
+  }
+return arrayUnicos;
+}
+
+const arrayUnicosNumeros = eliminarDuplicados([1, 2, 3, 3, 4, 5, 5, 6]); // Devuelve [1, 2, 3, 4, 5, 6]
+console.log(arrayUnicosNumeros)
+
+const arrayUnicosPalabras = eliminarDuplicados(["hola", "adios", "hola", "hasta", "luego"]); // Devuelve ["hola", "adios", "hasta", "luego"]
+console.log(arrayUnicosPalabras)
+
+//con forEach y console.log dentro de funcion
+
+function eliminarDuplicados2(arr) {
+  let arrayUnicos = [];
+  arr.forEach((elemento) => {
+      if (!arrayUnicos.includes(elemento)) {
+          arrayUnicos.push(elemento);
+      }
+  })
+  return console.log(arrayUnicos)
+  };
+
+eliminarDuplicados2([1, 2, 3, 3, 4, 5, 5, 6]); // Devuelve [1, 2, 3, 4, 5, 6]
+eliminarDuplicados2(["hola", "adios", "hola", "hasta", "luego"]); // Devuelve ["hola", "adios", "hasta", "luego"]
+
+
+//[OK] // Crea una función llamada sumarElementos(array) que reciba como parámetro un array de números y devuelva la suma de todos sus elementos. Puedes utilizar un ciclo for...of para recorrer el array y sumar sus elementos.
 sumarElementos([1, 2, 3, 4, 5]); // Devuelve 15
 sumarElementos([-5, 10, -15, 20]); // Devuelve 10
 
+
+//con REDUCE:
+function sumarElementos(arr) {
+  const elementosSumandos = arr.reduce((a,b) => a + b);
+    return elementosSumandos;
+  }
+
+const sum1 = sumarElementos([1, 2, 3, 4, 5])
+console.log(sum1)
+
+const sum2 = sumarElementos([-5, 10, -15, 20])
+console.log(sum2)
+
+// con FOREACH +=
+
+const sumarElementos2 = (arr) => {
+  let elementosSumados = 0;
+  arr.forEach((num) => {
+    elementosSumados += num
+  })
+  return elementosSumados
+}
+
+const sum3 = sumarElementos2([1, 2, 3, 4, 5])
+console.log(sum3)
+
+const sum4 = sumarElementos2([-5, 10, -15, 20])
+console.log(sum4)
+
+//TODO: SEGUIR POR AQUI
 // Crea una función en contarCaracteres(array) que reciba como parámetro un array de cadenas de caracteres y devuelva la cantidad total de caracteres que hay en todas las cadenas juntas. Puedes utilizar un ciclo for...of para recorrer el array y contar los caracteres.
 contarCaracteres(["Hola", "Mundo"]); // Devuelve 9
 contarCaracteres(["JavaScript", "es", "genial"]); // Devuelve 18
